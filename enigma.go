@@ -6,10 +6,20 @@ import (
 	"os"
 	"strings"
 )
+func enc(rotor []byte, c byte, offset uint8) (byte) {
+	
+	return rotor[(c-'A'+offset)%26]
+}
 func main() {
 	r1 :=[26]byte{'E','K','M','F','L','G','D','Q','V','Z','N','T','O','W','Y','H','X','U','S','P','A','I','B','R','C','J'}
 	r2 :=[26]byte{'A','J','D','K','S','I','R','U','X','B','L','H','W','T','M','C','Q','G','Z','N','P','Y','F','V','O','E'}
 	r3 :=[26]byte{'B','D','F','H','J','L','C','P','R','T','X','V','Z','N','Y','E','I','W','G','A','K','M','U','S','Q','O'}
+	var o1 = 0
+	var o2 = 0
+	var o3 = 0
+	var t1 = 'Q'
+	var t2 = 'E'
+	var t3 = 'V'
 	fmt.Println("Hello world")
 	reader := bufio.NewReader(os.Stdin)
 	text, _ := reader.ReadString('\n')
